@@ -1,12 +1,11 @@
-<section>
+
     <?php
       $productos = $modelProductos->mostrar();
       foreach ($productos as $id => $producto) {
-        echo "<article>
+        echo "<article class=\"panel-body\">
           Descripcion:$producto[descripcion]
           Precio: $producto[pvp]
-          <a href=\"$_SERVER[PHP_SELF]?opcion=regpedido&id=$key\"></a>
-        </article>  "
+          <a href=\"realizarpedido.php?id=$id\" class=\"btn btn-default\">Comprar</a>
+        </article>  ";
       }
     ?>
-</section>

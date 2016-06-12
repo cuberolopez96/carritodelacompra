@@ -37,6 +37,10 @@ class ModelPedidos{
     public function mostrar(){
         return $this->conexion->query("SELECT * FROM pedidos");
     }
+    public function getUltimoPedido(){
+      $pedidos=$this->conexion->query("SELECT * FROM pedidos");
+      return $pedidos[count($pedidos)-1];
+    }
 
 }
 ?>
