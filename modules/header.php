@@ -5,7 +5,7 @@
 require_once 'includes/ModelUsuarios.php';
 require_once "includes/ModelProductos.php";
 require_once "includes/ModelPedidos.php";
-require_once "includes/ModelDetallePedido";
+require_once "includes/ModelDetallePedido.php";
 //require_once 'includes/ModelPreguntas.php';
 $modelUsuarios = new ModelUsuarios();
 $modelProductos = new ModelProductos();
