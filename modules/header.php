@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 //
 //require_once 'includes/ModelEmpresas.php';
 require_once 'includes/ModelUsuarios.php';

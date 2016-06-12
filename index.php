@@ -3,7 +3,11 @@
     <main>
         <section id="logueoyregistro" class="row">
             <article id="logueo" class="col-md-6">
-                <?php require_once "modules/loginAlumno.php" ?>
+                <?php if(!isset($_SESSION['usuario'])){
+                  require_once "modules/loginAlumno.php";
+                }else{
+                  echo "estas logueado como: $_SESSION[usuario][usuario]";
+                } ?>
             </article>
             <article class="col-md-6" id="register">
                 <?php require_once "modules/register.php" ?>
