@@ -1,7 +1,7 @@
 <?php
 require_once "ConnectDB.php";
 require_once "DetPedido.php";
-class ModelProductos{
+class ModelDetallePedido{
     private $conexion ="";
 
     public function __construct(){

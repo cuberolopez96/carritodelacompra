@@ -1,10 +1,16 @@
-<?php 
+<?php
 //session_start();
 //
 //require_once 'includes/ModelEmpresas.php';
 require_once 'includes/ModelUsuarios.php';
+require_once "includes/ModelProductos.php";
+require_once "includes/ModelPedidos.php";
+require_once "includes/ModelDetallePedido";
 //require_once 'includes/ModelPreguntas.php';
 $modelUsuarios = new ModelUsuarios();
+$modelProductos = new ModelProductos();
+$modelPedidos = new ModelPedidos();
+$modeldetallespedidos = new ModelDetallePedido();
 //$modelEmpresas = new ModelEmpresas();
 //$modelPreguntas = new ModelPreguntas();
 ?>
@@ -19,4 +25,3 @@ $modelUsuarios = new ModelUsuarios();
 </head>
 <body>
     <header class="col-xs-12 page-header"><h1>Bienvenido al carrito de la compra</h1></header>
-    
