@@ -28,7 +28,7 @@
                 require_once "modules/listaProductos.php";
                 break;
               case "mispedidos":
-                require_once "modules/MisPedidos.php";
+                require_once "modules/mispedidos.php";
                 break;
               case "micuenta":
                 require_once "modules/Micuenta.php";

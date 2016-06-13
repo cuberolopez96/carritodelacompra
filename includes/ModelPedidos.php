@@ -41,6 +41,10 @@ class ModelPedidos{
       $pedidos=$this->conexion->query("SELECT * FROM pedidos");
       return $pedidos[count($pedidos)-1];
     }
+    public function buscarPorUsuario($id){
+        return $this->conexion->query("SELECT * FROM pedidos WHERE idusuario=:id",array(':id'=>$id));
+    }
+
 
 }
 ?>
