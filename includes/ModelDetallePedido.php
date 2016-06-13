@@ -37,6 +37,9 @@ class ModelDetallePedido{
     public function buscarPorId($id){
         return $this->conexion->query("SELECT * FROM detpedidos WHERE id=:id",array(':id'=>$id))[0];
     }
+    public function buscarPorPedido($id){
+        return $this->conexion->query("SELECT * FROM detpedidos WHERE idpedido=:id",array(':id'=>$id))[0];
+    }
     public function mostrar(){
         return $this->conexion->query("SELECT * FROM detpedidos");
     }

@@ -35,7 +35,7 @@ class ModelUsuarios{
         return $this->conexion->query("SELECT * FROM usuarios");
     }
     public function login($usuario,$contraseña){
-        return $this->conexion->query("SELECT * FROM alumnos WHERE usuario=:email and password=:psw",array(':email'=>$usuario,':psw'=>$contraseña));
+        return $this->conexion->query("SELECT * FROM usuarios WHERE usuario=:email and password=:psw",array(':email'=>$usuario,':psw'=>$contraseña));
     }
 }
 ?>

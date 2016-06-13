@@ -2,7 +2,7 @@
 $producto = $modelProductos->buscarPorId($_GET['id']+1);
 
 if(isset($_POST['add'])&&isset($_POST['unidades'])){
-$modelPedidos->add(new Pedido( date("Y-m-d H:i:s"),1,'Pendiente'));
+$modelPedidos->add(new Pedido( date("Y-m-d H:i:s"),$_SESSION['usuario']['id'],'Pendiente'));
 $ultimoPedido= $modelPedidos->getUltimoPedido();
 $modeldetallespedidos->add(new DetPedido($ultimoPedido['id'],$producto['id'],$_POST['unidades'],$producto['pvp']*$_POST['unidades']));
 
