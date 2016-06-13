@@ -1,12 +1,9 @@
 <?php
-require_once"../includes/ModelUsuarios.php";
-require_once"../includes/ModelProductos.php";
-require_once"../includes/ModelPedidos.php";
-require_once"../includes/ModelDetallePedido.php";
-$modelUsuarios = new ModelUsuarios();
-$modelProductos = new ModelProductos();
-$modelPedidos = new ModelPedidos();
-$modeldetallespedidos = new ModelDetallePedido();
+session_start();
+if(!isset($_SESSION['usuario'])||$_SESSION['usuario']['perfil']=='Admin'){
+  header('location: login.php');
+}
+require_once "modulos/require.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -141,20 +138,12 @@ $modeldetallespedidos = new ModelDetallePedido();
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION['usuario']['usuario']?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                        </li>
+
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="cerrarSesion.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -174,29 +163,7 @@ $modeldetallespedidos = new ModelDetallePedido();
                     <li>
                         <a href=<?php echo "$_SERVER[PHP_SELF]?opcion=pedidos"?>><i class="fa fa-fw fa-edit"></i> Pedidos</a>
                     </li>
-                    <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                    </li>
-                    <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-                    </li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -241,8 +208,12 @@ $modeldetallespedidos = new ModelDetallePedido();
                                 case "pedidos":
                                     require_once "modulos/adminPedidos.php";
                                     break;
-
+                                default:
+                                  require_once "modulos/adminPedidos.php";
+                                  break;
                             }
+                        }else{
+                          require_once "modulos/adminPedidos.php";
                         }
                     ?>
                     </div>
